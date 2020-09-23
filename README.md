@@ -1,9 +1,7 @@
 # Initialisation d'une application Laravel dockerisée
 
-<project_root> -> le répertoire de travail du projet
-
-<nom_de_mon_projet> -> le petit nom du projet
-
+<project_root> -> le répertoire de travail du projet  
+<nom_de_mon_projet> -> le petit nom du projet  
 <mon_compte> -> votre login
 
 
@@ -13,7 +11,8 @@
     git remote remove origin
 
 
-## Editer le fichier .env de docker-compose pour donner un vrai nom au projet ("foo" par defaut)
+## Configuration stack docker-compose
+Editer le fichier .env de docker-compose pour donner un vrai nom au projet ("foo" par defaut)
 
 
 ## Démarrer les containers
@@ -42,7 +41,8 @@
     sudo chmod -R go+r <repertoire_au_nom_de_mon_projet>
 
 
-## Mettre à jour le fichier /<project_root>/laravel-app/src/<repertoire_au_nom_de_mon_projet>/.env de l'application laravel
+## Configuration de l'application Laravel
+Mettre à jour le fichier /<project_root>/laravel-app/src/<repertoire_au_nom_de_mon_projet>/.env de l'application laravel
 
 
 ## Accéder à l'application
