@@ -1,5 +1,9 @@
 # Initialisation d'une application Laravel dockerisée
 
+<project_root> -> le répertoire de traval du projet
+<nom_de_mon_projet> -> le petit nom du projet
+<mon_compte> -> votre login
+
 
 ## Cloner le repo et retirer remote origin
     cd <project_root>
@@ -7,19 +11,21 @@
     git remote remove origin
 
 
-## Compléter la structure de répertoires le repo
-    cd /<project_root>/laravel-app/src
-    mkdir laravel-app
+## Editer le fichier .env de docker-compose pour donner un vrai nom au projet ("foo" par defaut)
 
 
 ## Démarrer les containers
     cd /<project_root>/laravel-app/src/docker
     docker-compose up -d --build
 
+    $ docker ps
+    CONTAINER ID    IMAGE              COMMAND                   CREATED          STATUS          PORTS                 NAMES
+    1ee03a83bc60    foo_laravel-app    "docker-php-entrypoi…"    5 minutes ago    Up 5 minutes    0.0.0.0:88->80/tcp    <nom_de_mon_projet>_laravel_app
+
 
 ## Créer une application dans le container "laravel-app"
     cd /<project_root>/laravel-app/src/docker
-    ./de.sh -c laravel-app
+    ./de.sh -c <nom_de_mon_projet>_laravel-app
     cd  /var/www/html
     laravel new myapp
     mv myapp/* .
@@ -30,11 +36,11 @@
 
 ## Modifier propriétaire et droits des sources
     cd /<project_root>/laravel-app/src
-    sudo chown -R dom: laravel-app
-    sudo chmod -R go+r laravel-app
+    sudo chown -R <mon_compte>: <repertoire_au_nom_de_mon_projet>
+    sudo chmod -R go+r <repertoire_au_nom_de_mon_projet>
 
 
-## Mettre à jour le fichier /<project_root>/laravel-app/src/laravel-app/.env de l'application laravel
+## Mettre à jour le fichier /<project_root>/laravel-app/src/<repertoire_au_nom_de_mon_projet>/.env de l'application laravel
 
 
 ## Accéder à l'application
