@@ -1,7 +1,9 @@
 # Initialisation d'une application Laravel dockerisée
 
-<project_root> -> le répertoire de traval du projet
+<project_root> -> le répertoire de travail du projet
+
 <nom_de_mon_projet> -> le petit nom du projet
+
 <mon_compte> -> votre login
 
 
