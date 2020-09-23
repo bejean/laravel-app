@@ -2,21 +2,23 @@
 
 
 ## Cloner le repo et retirer remote origin
+    cd <project_root>
     git clone https://github.com/bejean/laravel-app.git
     git remote remove origin
 
 
-## Clompléter la structure de répertoires le repo
-    cd laravel-app/src
+## Compléter la structure de répertoires le repo
+    cd /<project_root>/laravel-app/src
     mkdir laravel-app
 
 
 ## Démarrer les containers
-    cd docker
+    cd /<project_root>/laravel-app/src/docker
     docker-compose up -d --build
 
 
-## Créer une application
+## Créer une application dans le container "laravel-app"
+    cd /<project_root>/laravel-app/src/docker
     ./de.sh -c laravel-app
     cd  /var/www/html
     laravel new myapp
@@ -27,12 +29,12 @@
 
 
 ## Modifier propriétaire et droits des sources
-    cd ..
+    cd /<project_root>/laravel-app/src
     sudo chown -R dom: laravel-app
     sudo chmod -R go+r laravel-app
 
 
-## Mettre à jour le fichier laravel-app/.env de l'application laravel
+## Mettre à jour le fichier /<project_root>/laravel-app/src/laravel-app/.env de l'application laravel
 
 
 ## Accéder à l'application
