@@ -1,0 +1,38 @@
+version: '2.4'
+
+services:
+  laravel-app:
+    build:
+      context: '.'
+      args:
+        uid: ${UID}
+    container_name: ${COMPOSE_PROJECT_NAME}_laravel_app
+    environment:
+      - APACHE_RUN_USER=#${UID}
+      - APACHE_RUN_GROUP=#${UID}
+    volumes:
+      - ../${COMPOSE_PROJECT_NAME}:/var/www/html
+    ports:
+      - ${HOST_PORT}:80
+    networks:
+      - laravel
+
+  #mysql-db:
+  #  image: mysql:5.7
+  #  container_name: mysql-db
+  #  volumes:
+  #    - ./run/var:/var/lib/mysql
+  #  environment:
+  #    - MYSQL_ROOT_PASSWORD=root
+  #    - MYSQL_DATABASE=db
+  #    - MYSQL_USER=user
+  #    - MYSQL_PASSWORD=user
+  #  networks:
+  #    backend:
+  #      aliases:
+  #        - db
+
+networks:
+  laravel:
+    name: '${COMPOSE_PROJECT_NAME}'
+    driver: bridge
