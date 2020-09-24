@@ -54,15 +54,18 @@ Mettre à jour le fichier /<project_root>/laravel-app/src/<repertoire_au_nom_de_
 ## Ajouter une page phpinfo à l'application
 
 Ajouter dans /<project_root>/laravel-app/src/<repertoire_au_nom_de_mon_projet>/routes/web.php  
+
     Route::get('/phpinfo', function () {
         return view('phpinfo');
     });
 
 Créer un fichier /<project_root>/laravel-app/src/<repertoire_au_nom_de_mon_projet>/resources/views/phpinfo.php  
+
     <?php
     phpinfo();
 
-Accéder à la page
+Accéder à la page  
+
     http://localhost/phpinfo
 
 
