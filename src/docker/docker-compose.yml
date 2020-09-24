@@ -3,15 +3,18 @@ version: '2.4'
 services:
   laravel-app:
     build:
-      context: '.'
+      context: laravel-app
       args:
         uid: ${UID}
+        app: ${COMPOSE_PROJECT_NAME}
+        user: ${USER}
     container_name: ${COMPOSE_PROJECT_NAME}_laravel_app
     environment:
       - APACHE_RUN_USER=#${UID}
       - APACHE_RUN_GROUP=#${UID}
+      - XDEBUG_CONFIG=remote_host=10.5.0.1
     volumes:
-      - ../${COMPOSE_PROJECT_NAME}:/var/www/html
+      - ../${COMPOSE_PROJECT_NAME}:/var/www/${COMPOSE_PROJECT_NAME}
     ports:
       - ${HOST_PORT}:80
     networks:
