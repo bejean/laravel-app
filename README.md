@@ -26,23 +26,6 @@ Editer le fichier .env de docker-compose pour :
     1ee03a83bc60    foo_laravel-app    "docker-php-entrypoi…"    5 minutes ago    Up 5 minutes    0.0.0.0:88->80/tcp    <nom_de_mon_projet>_laravel_app
 
 
-## Créer une application dans le container "<nom_de_mon_projet>_laravel-app"
-    cd /<project_root>/laravel-app/src/docker
-    ./de.sh -c <nom_de_mon_projet>_laravel-app
-    cd  /var/www/html
-    laravel new myapp
-    mv myapp/* .
-    mv myapp/.* .
-    rmdir myapp
-    exit
-
-
-## Modifier propriétaire et droits des sources
-    cd /<project_root>/laravel-app/src
-    sudo chown -R <mon_compte>: <repertoire_au_nom_de_mon_projet>
-    sudo chmod -R go+r <repertoire_au_nom_de_mon_projet>
-
-
 ## Configuration de l'application Laravel
 Mettre à jour le fichier /<project_root>/laravel-app/src/<repertoire_au_nom_de_mon_projet>/.env de l'application laravel
 
@@ -51,7 +34,7 @@ Mettre à jour le fichier /<project_root>/laravel-app/src/<repertoire_au_nom_de_
     http://localhost/
 
 
-## Ajouter une page phpinfo à l'application
+## Ajouter une page phpinfo à l'application (optionnel)
 
 Ajouter dans /<project_root>/laravel-app/src/<repertoire_au_nom_de_mon_projet>/routes/web.php  
 

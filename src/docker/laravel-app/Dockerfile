@@ -20,6 +20,7 @@ RUN apt-get install -y \
 
 # 2. apache configs + document root
 ARG app
+ENV LARAVELAPP=$app
 ENV APACHE_DOCUMENT_ROOT=/var/www/${app}/public
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
 RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
@@ -55,6 +56,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # otherwise command from inside container will create root-owned files and directories
 ARG uid
 ARG user
+ENV LARAVELUSER=$user
 RUN useradd -G www-data,root -u $uid -d /home/$user $user
 RUN mkdir -p /home/$user/.composer && \
     chown -R $user:$user /home/$user
@@ -63,3 +65,7 @@ RUN mkdir -p /home/$user/.composer && \
 RUN composer global require laravel/installer
 ENV PATH "$PATH:/root/.composer/vendor/laravel/installer/bin"
 
+
+COPY entrypoint.sh /sbin/entrypoint.sh
+RUN chmod 755 /sbin/entrypoint.sh
+CMD ["/sbin/entrypoint.sh"]
