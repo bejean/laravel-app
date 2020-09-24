@@ -48,22 +48,22 @@ Mettre à jour le fichier /<project_root>/laravel-app/src/<repertoire_au_nom_de_
 
 
 ## Accéder à l'application
-    http://localhost:88/
+    http://localhost/
 
 
 ## Ajouter une page phpinfo à l'application
 
-Ajouter dans /<project_root>/laravel-app/src/<repertoire_au_nom_de_mon_projet>/routes/web.php
+Ajouter dans /<project_root>/laravel-app/src/<repertoire_au_nom_de_mon_projet>/routes/web.php  
     Route::get('/phpinfo', function () {
         return view('phpinfo');
     });
 
-Créer un fichier /<project_root>/laravel-app/src/<repertoire_au_nom_de_mon_projet>/resources/views/phpinfo.php
+Créer un fichier /<project_root>/laravel-app/src/<repertoire_au_nom_de_mon_projet>/resources/views/phpinfo.php  
     <?php
     phpinfo();
 
 Accéder à la page
-    http://localhost:88/phpinfo
+    http://localhost/phpinfo
 
 
 ## Configurer l'IDE de développement
