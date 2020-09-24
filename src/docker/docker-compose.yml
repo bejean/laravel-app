@@ -15,6 +15,7 @@ services:
       - XDEBUG_CONFIG=remote_host=10.5.0.1
     volumes:
       - ../${COMPOSE_PROJECT_NAME}:/var/www/${COMPOSE_PROJECT_NAME}
+      - ./laravel-app/init-scripts:/tmp/init-scripts
     ports:
       - ${HOST_PORT}:80
     networks:
