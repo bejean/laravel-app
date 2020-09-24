@@ -12,7 +12,9 @@
 
 
 ## Configuration stack docker-compose
-Editer le fichier .env de docker-compose pour donner un vrai nom au projet ("foo" par defaut)
+Editer le fichier .env de docker-compose pour : 
+* donner un vrai nom au projet ("foo" par defaut) 
+* definir le port d'acces http (80 par defaut) 
 
 
 ## Démarrer les containers
@@ -24,7 +26,7 @@ Editer le fichier .env de docker-compose pour donner un vrai nom au projet ("foo
     1ee03a83bc60    foo_laravel-app    "docker-php-entrypoi…"    5 minutes ago    Up 5 minutes    0.0.0.0:88->80/tcp    <nom_de_mon_projet>_laravel_app
 
 
-## Créer une application dans le container "laravel-app"
+## Créer une application dans le container "<nom_de_mon_projet>_laravel-app"
     cd /<project_root>/laravel-app/src/docker
     ./de.sh -c <nom_de_mon_projet>_laravel-app
     cd  /var/www/html
@@ -48,5 +50,28 @@ Mettre à jour le fichier /<project_root>/laravel-app/src/<repertoire_au_nom_de_
 ## Accéder à l'application
     http://localhost:88/
 
+
+## Ajouter une page phpinfo à l'application
+
+Ajouter dans /<project_root>/laravel-app/src/<repertoire_au_nom_de_mon_projet>/routes/web.php
+    Route::get('/phpinfo', function () {
+        return view('phpinfo');
+    });
+
+Créer un fichier /<project_root>/laravel-app/src/<repertoire_au_nom_de_mon_projet>/resources/views/phpinfo.php
+    <?php
+    phpinfo();
+
+Accéder à la page
+    http://localhost:88/phpinfo
+
+
+## Configurer l'IDE de développement
+
+Les sources sont accessibles localement en edition dans le répertoire "src/<nom_de_mon_projet>" 
+xdebug est installé et utilise le port 9001 
+le mapping xdebug
+![mapping xdebug](https://github.com/bejean/laravel-app/blob/master/PHPStorm-Xdebug.png?raw=true)
+![mapping xdebug](PHPStorm-Xdebug.png?raw=true)
 
 
