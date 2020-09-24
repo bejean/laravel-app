@@ -68,10 +68,9 @@ Accéder à la page
 
 ## Configurer l'IDE de développement
 
-Les sources sont accessibles localement en edition dans le répertoire "src/<nom_de_mon_projet>" 
-xdebug est installé et utilise le port 9001 
-le mapping xdebug
-![mapping xdebug](https://github.com/bejean/laravel-app/blob/master/PHPStorm-Xdebug.png?raw=true)
+* Les sources sont accessibles localement en edition dans le répertoire "src/<nom_de_mon_projet>" 
+* xdebug est installé et utilise le port 9001  
+* le mapping xdebug  
 ![mapping xdebug](PHPStorm-Xdebug.png?raw=true)
 
 
