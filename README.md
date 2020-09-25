@@ -11,15 +11,26 @@
     git remote remove origin
 
 
-## Configuration stack docker-compose
+## Ajouter des services à la stack Docker (optionnel)
+Editer "docker-compose-extra.yml"
+
+
+## Configuration stack Docker
 Editer le fichier .env de docker-compose pour : 
 * donner un vrai nom au projet ("foo" par defaut) 
 * definir le port d'acces http (80 par defaut) 
 
 
+## Activer et/ou ajouter des scrips d'intialisation de packages
+Dans le répertoire "/<project_root>/laravel-app/src/docker/laravel-app/init-scripts"  
+
+
 ## Démarrer les containers
     cd /<project_root>/laravel-app/src/docker
     docker-compose up -d --build
+
+ou  
+    docker-compose -f docker-compose.yml -f docker-compose-extra.yml up -d --build
 
     $ docker ps
     CONTAINER ID    IMAGE              COMMAND                   CREATED          STATUS          PORTS                 NAMES
@@ -27,7 +38,7 @@ Editer le fichier .env de docker-compose pour :
 
 
 ## Configuration de l'application Laravel
-Mettre à jour le fichier /<project_root>/laravel-app/src/<repertoire_au_nom_de_mon_projet>/.env de l'application laravel
+Mettre à jour le fichier "/<project_root>/laravel-app/src/<repertoire_au_nom_de_mon_projet>/.env" de l'application laravel
 
 
 ## Accéder à l'application
@@ -36,13 +47,13 @@ Mettre à jour le fichier /<project_root>/laravel-app/src/<repertoire_au_nom_de_
 
 ## Ajouter une page phpinfo à l'application (optionnel)
 
-Ajouter dans /<project_root>/laravel-app/src/<repertoire_au_nom_de_mon_projet>/routes/web.php  
+Ajouter dans "/<project_root>/laravel-app/src/<repertoire_au_nom_de_mon_projet>/routes/web.php"  
 
     Route::get('/phpinfo', function () {
         return view('phpinfo');
     });
 
-Créer un fichier /<project_root>/laravel-app/src/<repertoire_au_nom_de_mon_projet>/resources/views/phpinfo.php  
+Créer un fichier "/<project_root>/laravel-app/src/<repertoire_au_nom_de_mon_projet>/resources/views/phpinfo.php"  
 
     <?php
     phpinfo();
