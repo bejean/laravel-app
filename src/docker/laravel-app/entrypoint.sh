@@ -6,7 +6,6 @@ then
 	cd  /tmp
 	laravel new $LARAVELAPP
 	cp -rf $LARAVELAPP /var/www/.
-	chown -R $LARAVELUSER: /var/www/$LARAVELAPP	
 
 	chmod +x /tmp/init-scripts/*.sh
 	cd /var/www/$LARAVELAPP
@@ -17,6 +16,8 @@ then
   		# Or more explicitly: if this execution fails, then stop the `for`:
   		# if ! bash "$f" -H; then break; fi
 	done
+
+	chown -R $LARAVELUSER: /var/www/$LARAVELAPP	
 fi
 
 apache2-foreground

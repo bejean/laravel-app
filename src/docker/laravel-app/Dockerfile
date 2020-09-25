@@ -16,7 +16,12 @@ RUN apt-get install -y \
     libmcrypt-dev \
     libreadline-dev \
     libfreetype6-dev \
-    g++
+    g++ \
+    vim \
+    netcat \
+    wget \
+    iproute2 \
+    iputils-ping
 
 # 2. apache configs + document root
 ARG app
@@ -43,10 +48,7 @@ RUN docker-php-ext-install \
     zip \
     json
 
-RUN apt install -y vim netcat wget 
-
 RUN pecl install xdebug-2.9.7 && docker-php-ext-enable xdebug
-COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 # 5. composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
@@ -65,7 +67,10 @@ RUN mkdir -p /home/$user/.composer && \
 RUN composer global require laravel/installer
 ENV PATH "$PATH:/root/.composer/vendor/laravel/installer/bin"
 
+# 8. last config
+COPY xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
+# 9. start
 COPY entrypoint.sh /sbin/entrypoint.sh
 RUN chmod 755 /sbin/entrypoint.sh
 CMD ["/sbin/entrypoint.sh"]
