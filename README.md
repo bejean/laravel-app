@@ -80,7 +80,6 @@ Mettre à jour au besoin le fichier "/<project_root>/laravel-app/src/<repertoire
 Se logguer dans le container et lancer la mise à jour  
 
     cd /<project_root>/laravel-app/src/docker
-    ./de.sh -c <nom_de_mon_projet>_laravel-app
-    cd  /var/www/<repertoire_au_nom_de_mon_projet>
-    compose update
-    exit
+    ./de.sh -c <nom_de_mon_projet>_laravel-app _u <mon_compte>
+    root@0759bda3a636:/var/www/foo# compose update
+    root@0759bda3a636:/var/www/foo# exit
