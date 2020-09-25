@@ -71,3 +71,13 @@ Accéder à la page
 ![mapping xdebug](PHPStorm-Xdebug.png?raw=true)
 
 
+## Mise à jour version mineur de Laravel dans le container "laravel-app"
+
+Mettre à jour au besoin le fichier "/<project_root>/laravel-app/src/<repertoire_au_nom_de_mon_projet>/compose.json" (ajout de dépendances).    
+Se logguer dans le container et lancer la mise à jour  
+
+    cd /<project_root>/laravel-app/src/docker
+    ./de.sh -c <nom_de_mon_projet>_laravel-app
+    cd  /var/www/<repertoire_au_nom_de_mon_projet>
+    compose update
+    exit

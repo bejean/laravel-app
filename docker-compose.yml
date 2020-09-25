@@ -13,7 +13,7 @@ services:
       - APACHE_RUN_USER=#${UID}
       - APACHE_RUN_GROUP=#${UID}
     volumes:
-      - ../${COMPOSE_PROJECT_NAME}:/var/www/${COMPOSE_PROJECT_NAME}
+      - ../dev/src/${COMPOSE_PROJECT_NAME}:/var/www/${COMPOSE_PROJECT_NAME}
       - ./laravel-app/init-scripts:/tmp/init-scripts
     ports:
       - ${HOST_PORT}:80
