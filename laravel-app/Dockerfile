@@ -71,6 +71,7 @@ ENV PATH "$PATH:/root/.composer/vendor/laravel/installer/bin"
 COPY xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 # 9. start
+WORKDIR /var/www/${app}
 COPY entrypoint.sh /sbin/entrypoint.sh
 RUN chmod 755 /sbin/entrypoint.sh
 CMD ["/sbin/entrypoint.sh"]
