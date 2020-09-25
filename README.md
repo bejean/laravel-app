@@ -30,7 +30,10 @@ Dans le répertoire "/<project_root>/laravel-app/src/docker/laravel-app/init-scr
     docker-compose up -d --build
 
 ou  
-    docker-compose -f docker-compose.yml -f docker-compose-extra.yml up -d --build
+
+    docker-compose -f docker-compose.yml -f extra/docker-compose-extra.yml up -d --build
+  
+Après démarrage de la stack  
 
     $ docker ps
     CONTAINER ID    IMAGE              COMMAND                   CREATED          STATUS          PORTS                 NAMES
