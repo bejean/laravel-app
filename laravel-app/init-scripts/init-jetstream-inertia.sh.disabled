@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+
+# https://jetstream.laravel.com/1.x/installation.html
+
+php artisan route:cache
+composer require laravel/jetstream
+php artisan jetstream:install inertia
+npm install && npm run dev
+php artisan migrate
+
+#composer require inertiajs/inertia-laravel

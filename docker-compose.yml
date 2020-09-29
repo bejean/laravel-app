@@ -20,6 +20,19 @@ services:
     networks:
       - laravel
 
+  # laravel-db:
+  #   image: mysql:${MYSQL_VERSION}
+  #   container_name: ${COMPOSE_PROJECT_NAME}_laravel_db
+  #   volumes:
+  #     - ../mysql/${COMPOSE_PROJECT_NAME}:/var/lib/mysql
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+  #     - MYSQL_DATABASE=${COMPOSE_PROJECT_NAME}
+  #     - MYSQL_USER=${COMPOSE_PROJECT_NAME}
+  #     - MYSQL_PASSWORD=${COMPOSE_PROJECT_NAME}
+  #   networks:
+  #     - laravel
+
 networks:
   laravel:
     name: '${COMPOSE_PROJECT_NAME}'

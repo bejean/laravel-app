@@ -63,9 +63,11 @@ RUN useradd -G www-data,root -u $uid -d /home/$user $user
 RUN mkdir -p /home/$user/.composer && \
     chown -R $user:$user /home/$user
 
-# 7. laravel
+# 7. laravel / node.js
 RUN composer global require laravel/installer
 ENV PATH "$PATH:/root/.composer/vendor/laravel/installer/bin"
+RUN apt-get install -y npm && npm install npm@latest -g 
+#&& npm install -g @vue/cli
 
 # 8. last config
 COPY xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini

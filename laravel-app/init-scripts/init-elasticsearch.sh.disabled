@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+#composer require elasticsearch/elasticsearch:7.9
+composer require elasticsearch/elasticsearch
+
+#https://packagist.org/packages/cviebrock/laravel-elasticsearch
+#composer require cviebrock/laravel-elasticsearch
+#php artisan vendor:publish --provider="Cviebrock\LaravelElasticsearch\ServiceProvider"
